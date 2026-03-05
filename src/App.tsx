@@ -19,6 +19,15 @@ import ComplaintAppeal from "./pages/ComplaintAppeal";
 import WellbeingSafety from "./pages/WellbeingSafety";
 import AnonymousReport from "./pages/AnonymousReport";
 import ProtectedDisclosure from "./pages/ProtectedDisclosure";
+import TrackRequest from "./pages/TrackRequest";
+import DashboardHome from "./pages/dashboard/DashboardHome";
+import Profile from "./pages/dashboard/Profile";
+import MyEnquiries from "./pages/dashboard/MyEnquiries";
+import EnquiryDetail from "./pages/dashboard/EnquiryDetail";
+import MyCases from "./pages/dashboard/MyCases";
+import CaseDetail from "./pages/dashboard/CaseDetail";
+import DashboardInbox from "./pages/dashboard/DashboardInbox";
+import DashboardUpdates from "./pages/dashboard/DashboardUpdates";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,11 +53,19 @@ const App = () => (
               <Route path="/support/report" element={<AnonymousReport />} />
               <Route path="/support/disclosure" element={<ProtectedDisclosure />} />
               <Route path="/enquire" element={<GeneralEnquiry />} />
+              <Route path="/track" element={<TrackRequest />} />
             </Route>
 
             {/* Student dashboard routes */}
             <Route path="/dashboard" element={<DashboardLayout />}>
-              <Route index element={<div className="text-muted-foreground text-center py-20">Dashboard coming soon</div>} />
+              <Route index element={<DashboardHome />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="enquiries" element={<MyEnquiries />} />
+              <Route path="enquiries/:id" element={<EnquiryDetail />} />
+              <Route path="cases" element={<MyCases />} />
+              <Route path="cases/:id" element={<CaseDetail />} />
+              <Route path="inbox" element={<DashboardInbox />} />
+              <Route path="updates" element={<DashboardUpdates />} />
             </Route>
 
             {/* Staff routes */}
