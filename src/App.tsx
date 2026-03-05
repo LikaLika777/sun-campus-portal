@@ -3,6 +3,11 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { DemoProvider } from "@/contexts/DemoContext";
+import { DemoToggle } from "@/components/DemoToggle";
+import { PublicLayout } from "@/components/layouts/PublicLayout";
+import { DashboardLayout } from "@/components/layouts/DashboardLayout";
+import { StaffLayout } from "@/components/layouts/StaffLayout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -11,15 +16,32 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <DemoProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            {/* Public routes */}
+            <Route element={<PublicLayout />}>
+              <Route path="/" element={<Index />} />
+              {/* Phase 2 routes will go here */}
+            </Route>
+
+            {/* Student dashboard routes */}
+            <Route path="/dashboard" element={<DashboardLayout />}>
+              <Route index element={<div className="text-muted-foreground text-center py-20">Dashboard coming soon</div>} />
+            </Route>
+
+            {/* Staff routes */}
+            <Route path="/staff" element={<StaffLayout />}>
+              <Route index element={<div className="text-muted-foreground text-center py-20">Staff portal coming soon</div>} />
+            </Route>
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+        <DemoToggle />
+      </DemoProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
