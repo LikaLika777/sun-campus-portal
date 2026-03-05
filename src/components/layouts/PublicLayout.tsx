@@ -25,7 +25,7 @@ export function PublicLayout() {
       </a>
 
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+      <header className="sticky top-0 z-40 border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80" role="banner">
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
@@ -106,12 +106,12 @@ export function PublicLayout() {
       </header>
 
       {/* Main content */}
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="flex-1" role="main" aria-live="polite">
         <Outlet />
       </main>
 
       {/* Footer */}
-      <footer className="border-t bg-primary text-primary-foreground">
+      <footer className="border-t bg-primary text-primary-foreground" role="contentinfo">
         <div className="container py-8">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
