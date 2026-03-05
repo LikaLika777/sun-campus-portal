@@ -1,9 +1,9 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useDemo } from "@/contexts/DemoContext";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Menu, X } from "lucide-react";
+import { GraduationCap, Menu, X, Bell, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -13,9 +13,24 @@ const navLinks = [
 ];
 
 export function PublicLayout() {
-  const { isLoggedIn, currentPersona } = useDemo();
+  const { isLoggedIn, currentPersona, setPersona, enquiries, cases } = useDemo();
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Notification count based on persona
+  const notificationCount = useMemo(() => {
+    if (!isLoggedIn) return 0;
+    const personaEnquiries = enquiries.filter((e) => e.personaId === currentPersona.id);
+    const personaCases = cases.filter((c) => c.personaId === currentPersona.id);
+    // Count items with recent updates as "notifications"
+    return personaEnquiries.filter((e) => e.status !== "closed").length + personaCases.filter((c) => c.status !== "closed").length;
+  }, [isLoggedIn, currentPersona, enquiries, cases]);
+
+  const handleLogout = () => {
+    setPersona("anonymous");
+    navigate("/");
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -55,14 +70,30 @@ export function PublicLayout() {
 
           <div className="flex items-center gap-2">
             {isLoggedIn ? (
-              <Link to="/dashboard">
-                <Button size="sm" variant="outline" className="hidden md:flex">
-                  <span className="mr-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-foreground">
-                    {currentPersona.avatar}
-                  </span>
-                  Dashboard
+              <>
+                <Link to="/dashboard" className="relative hidden md:flex">
+                  <Button size="sm" variant="ghost" className="relative">
+                    <Bell className="h-4 w-4" />
+                    {notificationCount > 0 && (
+                      <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-destructive px-1 text-[10px] font-bold text-destructive-foreground">
+                        {notificationCount}
+                      </span>
+                    )}
+                  </Button>
+                </Link>
+                <Link to="/dashboard">
+                  <Button size="sm" variant="outline" className="hidden md:flex">
+                    <span className="mr-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-foreground">
+                      {currentPersona.avatar}
+                    </span>
+                    Dashboard
+                  </Button>
+                </Link>
+                <Button size="sm" variant="ghost" className="hidden md:flex text-muted-foreground" onClick={handleLogout}>
+                  <LogOut className="h-4 w-4 mr-1" />
+                  Log out
                 </Button>
-              </Link>
+              </>
             ) : (
               <Link to="/login">
                 <Button size="sm" className="hidden md:flex">Log in</Button>
@@ -93,9 +124,19 @@ export function PublicLayout() {
               </Link>
             ))}
             {isLoggedIn ? (
-              <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-primary">
-                Dashboard
-              </Link>
+              <>
+                <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="flex items-center justify-between px-3 py-2 text-sm font-medium text-primary">
+                  Dashboard
+                  {notificationCount > 0 && (
+                    <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-destructive px-1 text-[10px] font-bold text-destructive-foreground">
+                      {notificationCount}
+                    </span>
+                  )}
+                </Link>
+                <button onClick={() => { setMobileOpen(false); handleLogout(); }} className="block w-full text-left px-3 py-2 text-sm font-medium text-destructive">
+                  Log out
+                </button>
+              </>
             ) : (
               <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-primary">
                 Log in
