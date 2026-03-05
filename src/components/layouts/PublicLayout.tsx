@@ -97,10 +97,10 @@ export function PublicLayout() {
             ) : (
               <>
                 <Link to="/login">
-                  <Button size="sm" variant="outline" className="hidden md:flex">Log in</Button>
+                  <Button size="sm" className="hidden md:flex">Log in</Button>
                 </Link>
                 <Link to="/register">
-                  <Button size="sm" className="hidden md:flex bg-amber-500 hover:bg-amber-600 text-white">Register</Button>
+                  <Button size="sm" className="hidden md:flex bg-amber-500 hover:bg-amber-400 text-white border-0">Register</Button>
                 </Link>
               </>
             )}
