@@ -20,7 +20,7 @@ export default function Profile() {
   ].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 10);
 
   return (
-    <div className="space-y-6 max-w-2xl">
+    <div className="space-y-6 max-w-3xl w-full">
       <h1 className="font-heading text-2xl font-bold">My Profile</h1>
 
       {/* Read-only student info */}
