@@ -9,6 +9,10 @@ import { PublicLayout } from "@/components/layouts/PublicLayout";
 import { DashboardLayout } from "@/components/layouts/DashboardLayout";
 import { StaffLayout } from "@/components/layouts/StaffLayout";
 import Index from "./pages/Index";
+import CourseCatalogue from "./pages/CourseCatalogue";
+import CourseDetail from "./pages/CourseDetail";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,7 +28,10 @@ const App = () => (
             {/* Public routes */}
             <Route element={<PublicLayout />}>
               <Route path="/" element={<Index />} />
-              {/* Phase 2 routes will go here */}
+              <Route path="/courses" element={<CourseCatalogue />} />
+              <Route path="/courses/:slug" element={<CourseDetail />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
             </Route>
 
             {/* Student dashboard routes */}
