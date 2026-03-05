@@ -71,7 +71,7 @@ export function PublicLayout() {
           <div className="flex items-center gap-2">
             {isLoggedIn ? (
               <>
-                <Link to="/dashboard" className="relative hidden md:flex">
+                <Link to="/dashboard/inbox" className="relative hidden md:flex">
                   <Button size="sm" variant="ghost" className="relative">
                     <Bell className="h-4 w-4" />
                     {notificationCount > 0 && (
