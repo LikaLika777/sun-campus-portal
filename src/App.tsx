@@ -29,6 +29,12 @@ import CaseDetail from "./pages/dashboard/CaseDetail";
 import DashboardInbox from "./pages/dashboard/DashboardInbox";
 import DashboardUpdates from "./pages/dashboard/DashboardUpdates";
 import NotFound from "./pages/NotFound";
+import StaffInbox from "./pages/staff/StaffInbox";
+import StaffCasesList from "./pages/staff/StaffCasesList";
+import CaseIntake from "./pages/staff/CaseIntake";
+import IdentityMerge from "./pages/staff/IdentityMerge";
+import AccessDenied from "./pages/staff/AccessDenied";
+import AuditTrail from "./pages/staff/AuditTrail";
 
 const queryClient = new QueryClient();
 
@@ -70,7 +76,14 @@ const App = () => (
 
             {/* Staff routes */}
             <Route path="/staff" element={<StaffLayout />}>
-              <Route index element={<div className="text-muted-foreground text-center py-20">Staff portal coming soon</div>} />
+              <Route index element={<StaffInbox />} />
+              <Route path="inbox" element={<StaffInbox />} />
+              <Route path="cases" element={<StaffCasesList />} />
+              <Route path="cases/:id" element={<CaseIntake />} />
+              <Route path="intake/:id" element={<CaseIntake />} />
+              <Route path="merge" element={<IdentityMerge />} />
+              <Route path="access-denied" element={<AccessDenied />} />
+              <Route path="audit/:id" element={<AuditTrail />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />
