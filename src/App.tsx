@@ -13,6 +13,12 @@ import CourseCatalogue from "./pages/CourseCatalogue";
 import CourseDetail from "./pages/CourseDetail";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import SupportHub from "./pages/SupportHub";
+import GeneralEnquiry from "./pages/GeneralEnquiry";
+import ComplaintAppeal from "./pages/ComplaintAppeal";
+import WellbeingSafety from "./pages/WellbeingSafety";
+import AnonymousReport from "./pages/AnonymousReport";
+import ProtectedDisclosure from "./pages/ProtectedDisclosure";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +38,12 @@ const App = () => (
               <Route path="/courses/:slug" element={<CourseDetail />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/support" element={<SupportHub />} />
+              <Route path="/support/complaint" element={<ComplaintAppeal />} />
+              <Route path="/support/wellbeing" element={<WellbeingSafety />} />
+              <Route path="/support/report" element={<AnonymousReport />} />
+              <Route path="/support/disclosure" element={<ProtectedDisclosure />} />
+              <Route path="/enquire" element={<GeneralEnquiry />} />
             </Route>
 
             {/* Student dashboard routes */}
