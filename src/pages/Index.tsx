@@ -33,8 +33,8 @@ export default function Index() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/courses"><Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold hover-lift">Explore Courses <ArrowRight className="ml-1 h-4 w-4" /></Button></Link>
-              <Link to="/enquire"><Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">Make an Enquiry</Button></Link>
-              <Link to="/support"><Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">Get Support</Button></Link>
+              <Link to="/enquire"><Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Make an Enquiry</Button></Link>
+              <Link to="/support"><Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Get Support</Button></Link>
             </div>
           </motion.div>
         </div>
