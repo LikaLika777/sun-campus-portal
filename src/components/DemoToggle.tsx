@@ -46,7 +46,7 @@ export function DemoToggle() {
 
             {/* Persona list */}
             <div className="mb-3 max-h-52 space-y-1 overflow-y-auto">
-              {allPersonas.map((p) => (
+              {allPersonas.filter((p) => viewMode === "student" ? p.role === "student" : p.role === "staff" || p.role === "officer").map((p) => (
                 <button
                   key={p.id}
                   onClick={() => setPersona(p.id)}
