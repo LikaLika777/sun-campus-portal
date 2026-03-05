@@ -95,9 +95,14 @@ export function PublicLayout() {
                 </Button>
               </>
             ) : (
-              <Link to="/login">
-                <Button size="sm" className="hidden md:flex">Log in</Button>
-              </Link>
+              <>
+                <Link to="/login">
+                  <Button size="sm" variant="outline" className="hidden md:flex">Log in</Button>
+                </Link>
+                <Link to="/register">
+                  <Button size="sm" className="hidden md:flex bg-amber-500 hover:bg-amber-600 text-white">Register</Button>
+                </Link>
+              </>
             )}
 
             {/* Mobile menu button */}
@@ -138,9 +143,14 @@ export function PublicLayout() {
                 </button>
               </>
             ) : (
-              <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-primary">
-                Log in
-              </Link>
+              <>
+                <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-primary">
+                  Log in
+                </Link>
+                <Link to="/register" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-amber-500">
+                  Register
+                </Link>
+              </>
             )}
           </nav>
         )}
