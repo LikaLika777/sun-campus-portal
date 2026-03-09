@@ -150,26 +150,15 @@ export function PublicLayout() {
 
         {/* Search bar dropdown */}
         {searchOpen && (
-          <div className={cn(
-            "border-t px-4 py-3",
-            isHomePage ? "bg-primary/90 backdrop-blur border-primary-foreground/20" : "bg-card border-border"
-          )}>
+          <div className="border-t bg-card px-4 py-3">
             <div className="container">
               <div className="relative max-w-xl">
-                <Search className={cn(
-                  "absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4",
-                  isHomePage ? "text-primary-foreground/60" : "text-muted-foreground"
-                )} />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <input
                   type="search"
                   placeholder="Search courses, support topics..."
                   autoFocus
-                  className={cn(
-                    "w-full pl-10 pr-4 py-2 rounded-md text-sm outline-none",
-                    isHomePage
-                      ? "bg-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/50 border border-primary-foreground/20 focus:border-primary-foreground/40"
-                      : "bg-muted text-foreground placeholder:text-muted-foreground border border-input focus:border-ring"
-                  )}
+                  className="w-full pl-10 pr-4 py-2 rounded-md text-sm outline-none bg-muted text-foreground placeholder:text-muted-foreground border border-input focus:border-ring"
                 />
               </div>
             </div>
