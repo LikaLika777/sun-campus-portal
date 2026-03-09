@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { GraduationCap, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import unswLogo from "@/assets/unsw-college-logo.png";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 
@@ -43,8 +44,8 @@ export default function Register() {
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4">
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary mb-3">
-            <GraduationCap className="h-6 w-6 text-primary-foreground" />
+          <div className="inline-flex h-12 w-auto items-center justify-center mb-3">
+            <img src={unswLogo} alt="UNSW College" className="h-12 w-auto" />
           </div>
           <h1 className="font-heading text-2xl font-bold">Create your account</h1>
           <p className="text-sm text-muted-foreground mt-1">Join UNSW College Student Portal</p>

@@ -1,11 +1,12 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useDemo } from "@/contexts/DemoContext";
-import { Inbox, FileSearch, GitMerge, Shield, ClipboardList, GraduationCap, LogOut } from "lucide-react";
+import { Inbox, FileSearch, GitMerge, Shield, ClipboardList, LogOut } from "lucide-react";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
   SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger
 } from "@/components/ui/sidebar";
 import { NavLink } from "@/components/NavLink";
+import unswLogo from "@/assets/unsw-college-logo.png";
 
 const staffItems = [
   { title: "Inbox", url: "/staff/inbox", icon: Inbox },
@@ -27,8 +28,8 @@ export function StaffLayout() {
         <Sidebar collapsible="icon">
           <div className="p-4 border-b border-sidebar-border">
             <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sidebar-primary">
-                <GraduationCap className="h-4 w-4 text-sidebar-primary-foreground" />
+              <div className="flex h-8 w-8 items-center justify-center bg-white p-1">
+                <img src={unswLogo} alt="UNSW College" className="h-full w-auto" />
               </div>
               <span className="font-heading text-xs font-bold text-sidebar-foreground">Staff Portal</span>
             </Link>

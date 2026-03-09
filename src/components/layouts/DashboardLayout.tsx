@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { useDemo } from "@/contexts/DemoContext";
-import { Home, FileText, Briefcase, Inbox, Bell, UserCircle, GraduationCap, LogOut } from "lucide-react";
+import { Home, FileText, Briefcase, Inbox, Bell, UserCircle, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
@@ -8,6 +8,7 @@ import {
   useSidebar
 } from "@/components/ui/sidebar";
 import { NavLink } from "@/components/NavLink";
+import unswLogo from "@/assets/unsw-college-logo.png";
 
 const sidebarItems = [
   { title: "Dashboard", url: "/dashboard", icon: Home },
@@ -27,8 +28,8 @@ function DashboardSidebarContent() {
     <>
       <div className="p-4 border-b border-sidebar-border">
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-primary">
-            <GraduationCap className="h-4 w-4 text-sidebar-primary-foreground" />
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center bg-white p-1">
+            <img src={unswLogo} alt="UNSW College" className="h-full w-auto" />
           </div>
           {!collapsed && (
             <span className="font-heading text-xs font-bold text-sidebar-foreground">UNSW College</span>
