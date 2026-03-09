@@ -71,18 +71,10 @@ export function PublicLayout() {
                 key={link.href}
                 to={link.href}
                 className={cn(
-                  "px-3 py-2 text-sm font-medium rounded-md transition-colors",
-                  isHomePage
-                    ? "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
-                    : "hover:bg-muted",
-                  !isHomePage && location.pathname === link.href
+                  "px-3 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted",
+                  location.pathname === link.href
                     ? "text-primary bg-primary/5"
-                    : !isHomePage
-                    ? "text-muted-foreground"
-                    : "",
-                  isHomePage && location.pathname === link.href
-                    ? "text-primary-foreground font-semibold"
-                    : ""
+                    : "text-muted-foreground"
                 )}
               >
                 {link.label}
@@ -91,15 +83,10 @@ export function PublicLayout() {
           </nav>
 
           <div className="flex items-center gap-2">
-            {/* Search button */}
+            {/* Search button — dark square like reference */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className={cn(
-                "p-2 rounded-md transition-colors",
-                isHomePage
-                  ? "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
-                  : "text-muted-foreground hover:bg-muted"
-              )}
+              className="flex h-10 w-10 items-center justify-center rounded-sm bg-foreground text-background transition-colors hover:bg-foreground/80"
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
