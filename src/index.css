@@ -146,9 +146,18 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 700;
+  h1, h2 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  a:not([class]) {
+    color: hsl(var(--link));
   }
 
   /* WCAG 2.1 AA - 3px yellow focus ring */
