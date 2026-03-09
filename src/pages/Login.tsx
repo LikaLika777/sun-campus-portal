@@ -59,8 +59,8 @@ export default function Login() {
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4">
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary mb-3">
-            <GraduationCap className="h-6 w-6 text-primary-foreground" />
+          <div className="inline-flex h-12 w-auto items-center justify-center mb-3">
+            <img src={unswLogo} alt="UNSW College" className="h-12 w-auto" />
           </div>
           <h1 className="font-heading text-2xl font-bold">Welcome back</h1>
           <p className="text-sm text-muted-foreground mt-1">Sign in to your UNSW College portal</p>

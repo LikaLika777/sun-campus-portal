@@ -28,8 +28,8 @@ function DashboardSidebarContent() {
     <>
       <div className="p-4 border-b border-sidebar-border">
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-primary">
-            <GraduationCap className="h-4 w-4 text-sidebar-primary-foreground" />
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center bg-white p-1">
+            <img src={unswLogo} alt="UNSW College" className="h-full w-auto" />
           </div>
           {!collapsed && (
             <span className="font-heading text-xs font-bold text-sidebar-foreground">UNSW College</span>
