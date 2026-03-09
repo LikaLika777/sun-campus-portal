@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { useDemo } from "@/contexts/DemoContext";
-import { Home, FileText, Briefcase, Inbox, Bell, UserCircle, GraduationCap, LogOut } from "lucide-react";
+import { Home, FileText, Briefcase, Inbox, Bell, UserCircle, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
@@ -8,6 +8,7 @@ import {
   useSidebar
 } from "@/components/ui/sidebar";
 import { NavLink } from "@/components/NavLink";
+import unswLogo from "@/assets/unsw-college-logo.png";
 
 const sidebarItems = [
   { title: "Dashboard", url: "/dashboard", icon: Home },
