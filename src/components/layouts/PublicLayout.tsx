@@ -22,7 +22,6 @@ export function PublicLayout() {
 
   const isHomePage = location.pathname === "/";
 
-  // Notification count based on persona
   const notificationCount = useMemo(() => {
     if (!isLoggedIn) return 0;
     const personaEnquiries = enquiries.filter((e) => e.personaId === currentPersona.id);
@@ -37,18 +36,16 @@ export function PublicLayout() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Skip link */}
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
 
-      {/* Header */}
+      {/* Header — always floating transparent style */}
       <header
         className="absolute z-40 w-full bg-transparent pt-4 transition-colors duration-300"
         role="banner"
       >
         <div className="mx-auto flex h-16 w-[92%] max-w-[1540px] items-center rounded-sm bg-card shadow-md overflow-hidden">
-
           <Link to="/" className="flex items-center gap-2 px-6">
             <img src={unswLogo} alt="UNSW College" className="h-10 w-auto" />
           </Link>
@@ -196,14 +193,19 @@ export function PublicLayout() {
             )}
           </nav>
         )}
-      {/* Spacer for non-home pages to push content below absolute header */}
+      </header>
+
+      {/* Banner spacer for non-home pages */}
       {!isHomePage && (
         <div className="relative h-[120px] bg-primary">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
         </div>
       )}
 
-
+      {/* Main content */}
+      <main id="main-content" className="flex-1" role="main" aria-live="polite">
+        <Outlet />
+      </main>
 
       {/* Footer */}
       <footer className="border-t bg-primary text-primary-foreground" role="contentinfo">
