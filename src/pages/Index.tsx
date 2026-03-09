@@ -20,42 +20,44 @@ export default function Index() {
 
   return (
     <div>
-      {/* Hero — image right, text left with gradient, matching reference layout */}
-      <section className="relative overflow-hidden" aria-labelledby="hero-heading">
+      {/* Hero — full bleed with image behind transparent nav */}
+      <section className="relative min-h-[520px] sm:min-h-[560px] md:min-h-[600px] flex items-center overflow-hidden -mt-16" aria-labelledby="hero-heading">
         {/* Background image */}
         <img
           src={heroBanner}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover"
           aria-hidden="true"
         />
-        {/* Gradient overlay — heavy on left for text, fading to transparent on right to show image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,100%,14%)] via-[hsl(215,100%,14%)/0.85] to-transparent" />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/40" />
 
-        <div className="container relative py-20 sm:py-24 md:py-32 lg:py-36">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-lg"
-          >
-            <h1
-              id="hero-heading"
-              className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-white"
-            >
-              Your path to UNSW Sydney
+        <div className="container relative pt-16 py-16 sm:py-20 md:py-28">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-2xl">
+            <h1 id="hero-heading" className="font-heading text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight mb-4 text-primary-foreground">
+              Your path to UNSW<br />
+              <span className="text-accent">Sydney</span>
             </h1>
-            <p className="text-sm sm:text-base text-white/80 mb-8 font-body leading-relaxed">
+            <p className="text-base sm:text-lg text-primary-foreground/90 mb-8 font-body max-w-lg">
               Start your college journey with UNSW College and prepare to thrive at a world top-50 university, UNSW Sydney.
             </p>
-            <Link to="/courses">
-              <Button
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold hover-lift"
-              >
-                Explore our pathways <ArrowRight className="ml-1.5 h-4 w-4" />
-              </Button>
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/courses">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold hover-lift">
+                  Explore our pathways <ArrowRight className="ml-1 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link to="/enquire">
+                <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                  Make an Enquiry
+                </Button>
+              </Link>
+              <Link to="/support">
+                <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                  Get Support
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

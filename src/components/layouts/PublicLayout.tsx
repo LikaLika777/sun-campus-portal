@@ -20,6 +20,9 @@ export function PublicLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
+  const isHomePage = location.pathname === "/";
+
+  // Notification count based on persona
   const notificationCount = useMemo(() => {
     if (!isLoggedIn) return 0;
     const personaEnquiries = enquiries.filter((e) => e.personaId === currentPersona.id);
@@ -34,27 +37,45 @@ export function PublicLayout() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <a href="#main-content" className="skip-link">Skip to main content</a>
+      {/* Skip link */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
 
-      {/* Header — white bar, matching reference site */}
-      <header className="sticky top-0 z-40 bg-card border-b border-border" role="banner">
-        <div className="container flex h-14 items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0">
-            <img src={unswLogo} alt="UNSW College" className="h-9 w-auto" />
+      {/* Header */}
+      <header
+        className={cn(
+          "sticky top-0 z-40 transition-colors duration-300",
+          isHomePage
+            ? "absolute w-full bg-transparent"
+            : "border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80"
+        )}
+        role="banner"
+      >
+        <div className="container flex h-16 items-center justify-between">
+          <Link to="/" className="flex items-center gap-2">
+            <img src={unswLogo} alt="UNSW College" className="h-10 w-auto" />
           </Link>
 
-          {/* Desktop nav — centered links */}
-          <nav className="hidden md:flex items-center gap-0.5" aria-label="Main navigation">
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 className={cn(
-                  "px-4 py-2 text-sm font-medium transition-colors hover:text-foreground",
-                  location.pathname === link.href
-                    ? "text-foreground font-semibold"
-                    : "text-muted-foreground"
+                  "px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                  isHomePage
+                    ? "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                    : "hover:bg-muted",
+                  !isHomePage && location.pathname === link.href
+                    ? "text-primary bg-primary/5"
+                    : !isHomePage
+                    ? "text-muted-foreground"
+                    : "",
+                  isHomePage && location.pathname === link.href
+                    ? "text-primary-foreground font-semibold"
+                    : ""
                 )}
               >
                 {link.label}
@@ -62,12 +83,32 @@ export function PublicLayout() {
             ))}
           </nav>
 
-          {/* Right side actions */}
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
+            {/* Search button */}
+            <button
+              onClick={() => setSearchOpen(!searchOpen)}
+              className={cn(
+                "p-2 rounded-md transition-colors",
+                isHomePage
+                  ? "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                  : "text-muted-foreground hover:bg-muted"
+              )}
+              aria-label="Search"
+            >
+              <Search className="h-5 w-5" />
+            </button>
+
             {isLoggedIn ? (
               <>
                 <Link to="/dashboard/inbox" className="relative hidden md:flex">
-                  <Button size="sm" variant="ghost" className="relative h-9 w-9 p-0">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className={cn(
+                      "relative",
+                      isHomePage && "text-primary-foreground hover:bg-primary-foreground/10"
+                    )}
+                  >
                     <Bell className="h-4 w-4" />
                     {notificationCount > 0 && (
                       <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-destructive px-1 text-[10px] font-bold text-destructive-foreground">
@@ -77,40 +118,65 @@ export function PublicLayout() {
                   </Button>
                 </Link>
                 <Link to="/dashboard">
-                  <Button size="sm" variant="ghost" className="hidden md:flex text-sm font-medium">
-                    <span className="mr-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-foreground">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className={cn(
+                      "hidden md:flex",
+                      isHomePage && "border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+                    )}
+                  >
+                    <span className="mr-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-foreground">
                       {currentPersona.avatar}
                     </span>
-                    My Portal
+                    Dashboard
                   </Button>
                 </Link>
-                <Button size="sm" variant="ghost" className="hidden md:flex text-muted-foreground h-9 w-9 p-0" onClick={handleLogout}>
-                  <LogOut className="h-4 w-4" />
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className={cn(
+                    "hidden md:flex",
+                    isHomePage ? "text-primary-foreground/70 hover:bg-primary-foreground/10" : "text-muted-foreground"
+                  )}
+                  onClick={handleLogout}
+                >
+                  <LogOut className="h-4 w-4 mr-1" />
+                  Log out
                 </Button>
               </>
             ) : (
               <>
                 <Link to="/login">
-                  <Button size="sm" variant="ghost" className="hidden md:flex text-sm font-medium">Log in</Button>
+                  <Button
+                    size="sm"
+                    className={cn(
+                      "hidden md:flex",
+                      isHomePage && "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                    )}
+                  >
+                    Log in
+                  </Button>
                 </Link>
                 <Link to="/register">
-                  <Button size="sm" className="hidden md:flex bg-accent text-accent-foreground hover:bg-accent/90 text-sm font-medium">Register</Button>
+                  <Button
+                    size="sm"
+                    className={cn(
+                      "hidden md:flex bg-accent text-accent-foreground hover:bg-accent/90"
+                    )}
+                  >
+                    Register
+                  </Button>
                 </Link>
               </>
             )}
 
-            {/* Search icon */}
+            {/* Mobile menu button */}
             <button
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="h-9 w-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              aria-label="Search"
-            >
-              <Search className="h-[18px] w-[18px]" />
-            </button>
-
-            {/* Mobile menu */}
-            <button
-              className="md:hidden h-9 w-9 flex items-center justify-center"
+              className={cn(
+                "md:hidden p-2",
+                isHomePage ? "text-primary-foreground" : ""
+              )}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -121,15 +187,26 @@ export function PublicLayout() {
 
         {/* Search bar dropdown */}
         {searchOpen && (
-          <div className="border-t bg-card px-4 py-3">
+          <div className={cn(
+            "border-t px-4 py-3",
+            isHomePage ? "bg-primary/90 backdrop-blur border-primary-foreground/20" : "bg-card border-border"
+          )}>
             <div className="container">
               <div className="relative max-w-xl">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Search className={cn(
+                  "absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4",
+                  isHomePage ? "text-primary-foreground/60" : "text-muted-foreground"
+                )} />
                 <input
                   type="search"
                   placeholder="Search courses, support topics..."
                   autoFocus
-                  className="w-full pl-10 pr-4 py-2 rounded-md text-sm bg-muted text-foreground placeholder:text-muted-foreground border border-input focus:border-ring outline-none"
+                  className={cn(
+                    "w-full pl-10 pr-4 py-2 rounded-md text-sm outline-none",
+                    isHomePage
+                      ? "bg-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/50 border border-primary-foreground/20 focus:border-primary-foreground/40"
+                      : "bg-muted text-foreground placeholder:text-muted-foreground border border-input focus:border-ring"
+                  )}
                 />
               </div>
             </div>
@@ -146,7 +223,7 @@ export function PublicLayout() {
                 onClick={() => setMobileOpen(false)}
                 className={cn(
                   "block px-3 py-2 text-sm font-medium rounded-md transition-colors",
-                  location.pathname === link.href ? "text-foreground font-semibold bg-muted" : "text-muted-foreground"
+                  location.pathname === link.href ? "text-primary bg-primary/5" : "text-muted-foreground"
                 )}
               >
                 {link.label}
@@ -168,73 +245,50 @@ export function PublicLayout() {
               </>
             ) : (
               <>
-                <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-primary">Log in</Link>
-                <Link to="/register" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-accent-foreground">Register</Link>
+                <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-primary">
+                  Log in
+                </Link>
+                <Link to="/register" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-accent-foreground">
+                  Register
+                </Link>
               </>
             )}
           </nav>
         )}
       </header>
 
+      {/* Main content */}
       <main id="main-content" className="flex-1" role="main" aria-live="polite">
         <Outlet />
       </main>
 
-      {/* Footer — black background matching reference */}
-      <footer className="bg-[hsl(0,0%,10%)] text-[hsl(0,0%,70%)]" role="contentinfo">
-        <div className="container py-10">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Column 1 — Branding */}
+      {/* Footer */}
+      <footer className="border-t bg-primary text-primary-foreground" role="contentinfo">
+        <div className="container py-8">
+          <div className="grid gap-8 md:grid-cols-3">
             <div>
-              <img src={unswLogo} alt="UNSW College" className="h-8 w-auto brightness-0 invert mb-4" />
-              <p className="text-xs leading-relaxed">
-                UNSW College Pty Ltd<br />
-                High St, UNSW Kensington Campus<br />
-                Sydney, NSW 2052<br />
-                <a href="tel:+61293855555" className="hover:text-white transition-colors">+61 2 9385 5555</a><br />
-                <a href="mailto:studentservices@unswcollege.edu.au" className="hover:text-white transition-colors">studentservices@unswcollege.edu.au</a>
+              <h4 className="font-heading text-sm font-semibold mb-2">UNSW College</h4>
+              <p className="text-xs opacity-80">Part of UNSW Sydney. Providing pathways to world-class education since 1989.</p>
+            </div>
+            <div>
+              <h4 className="font-heading text-sm font-semibold mb-2">Quick Links</h4>
+              <ul className="space-y-1 text-xs opacity-80">
+                <li><Link to="/courses" className="hover:opacity-100 transition-opacity">Courses</Link></li>
+                <li><Link to="/support" className="hover:opacity-100 transition-opacity">Support</Link></li>
+                <li><Link to="/enquire" className="hover:opacity-100 transition-opacity">Make an Enquiry</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-heading text-sm font-semibold mb-2">Contact</h4>
+              <p className="text-xs opacity-80">
+                Kensington, NSW 2052<br />
+                +61 2 9385 5555<br />
+                studentservices@unswcollege.edu.au
               </p>
             </div>
-
-            {/* Column 2 — Connect */}
-            <div>
-              <h4 className="text-white font-heading text-sm font-semibold mb-3">Connect</h4>
-              <ul className="space-y-2 text-xs">
-                <li><Link to="/enquire" className="hover:text-white transition-colors">Make an Enquiry</Link></li>
-                <li><Link to="/support" className="hover:text-white transition-colors">Support Hub</Link></li>
-                <li><Link to="/track" className="hover:text-white transition-colors">Track a Request</Link></li>
-              </ul>
-            </div>
-
-            {/* Column 3 — Study */}
-            <div>
-              <h4 className="text-white font-heading text-sm font-semibold mb-3">Study</h4>
-              <ul className="space-y-2 text-xs">
-                <li><Link to="/courses" className="hover:text-white transition-colors">Course Catalogue</Link></li>
-                <li><Link to="/support/complaint" className="hover:text-white transition-colors">Complaints & Appeals</Link></li>
-                <li><Link to="/support/wellbeing" className="hover:text-white transition-colors">Wellbeing & Safety</Link></li>
-              </ul>
-            </div>
-
-            {/* Column 4 — Our Portal */}
-            <div>
-              <h4 className="text-white font-heading text-sm font-semibold mb-3">Our Portal</h4>
-              <ul className="space-y-2 text-xs">
-                <li><Link to="/login" className="hover:text-white transition-colors">Student Login</Link></li>
-                <li><Link to="/register" className="hover:text-white transition-colors">Register</Link></li>
-                <li><Link to="/support/disclosure" className="hover:text-white transition-colors">Protected Disclosure</Link></li>
-              </ul>
-            </div>
           </div>
-
-          {/* Divider + bottom row */}
-          <div className="mt-8 pt-6 border-t border-[hsl(0,0%,20%)] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[hsl(0,0%,50%)]">
-            <span>© {new Date().getFullYear()} UNSW College Pty Ltd. Demo prototype — not a live system.</span>
-            <div className="flex gap-4">
-              <span className="hover:text-white cursor-pointer transition-colors">Privacy</span>
-              <span className="hover:text-white cursor-pointer transition-colors">Accessibility</span>
-              <span className="hover:text-white cursor-pointer transition-colors">Terms</span>
-            </div>
+          <div className="mt-6 border-t border-primary-foreground/20 pt-4 text-center text-xs opacity-60">
+            © {new Date().getFullYear()} UNSW College. Demo prototype — not a live system.
           </div>
         </div>
       </footer>
