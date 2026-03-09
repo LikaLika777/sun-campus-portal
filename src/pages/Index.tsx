@@ -7,10 +7,10 @@ import { HeadphonesIcon, ArrowRight, Globe, Users, Award } from "lucide-react";
 import heroBanner from "@/assets/hero-banner.jpg";
 
 const features = [
-  { icon: Globe, title: "Global Pathways", description: "Study pathways to UNSW Sydney, a world top-50 university." },
-  { icon: Users, title: "Student Support", description: "Dedicated support services for your academic journey." },
-  { icon: Award, title: "Proven Success", description: "Over 30 years of helping students achieve their goals." },
-];
+{ icon: Globe, title: "Global Pathways", description: "Study pathways to UNSW Sydney, a world top-50 university." },
+{ icon: Users, title: "Student Support", description: "Dedicated support services for your academic journey." },
+{ icon: Award, title: "Proven Success", description: "Over 30 years of helping students achieve their goals." }];
+
 
 const container = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } };
 const item = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
@@ -27,8 +27,8 @@ export default function Index() {
           src={heroBanner}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          aria-hidden="true"
-        />
+          aria-hidden="true" />
+        
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/40" />
 
@@ -66,8 +66,8 @@ export default function Index() {
       <section className="container py-12 md:py-16" aria-labelledby="features-heading">
         <h2 id="features-heading" className="sr-only">Why UNSW College</h2>
         <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-4 sm:gap-6 md:grid-cols-3">
-          {features.map((f) => (
-            <motion.div key={f.title} variants={item}>
+          {features.map((f) =>
+          <motion.div key={f.title} variants={item}>
               <Card className="border-0 shadow-card hover-lift">
                 <CardContent className="p-5 sm:p-6 flex items-start gap-4">
                   <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10">
@@ -80,12 +80,12 @@ export default function Index() {
                 </CardContent>
               </Card>
             </motion.div>
-          ))}
+          )}
         </motion.div>
       </section>
 
       {/* Course Grid */}
-      <section className="bg-muted/50 py-12 md:py-16" aria-labelledby="programs-heading">
+      <section className="py-12 md:py-16 bg-slate-200" aria-labelledby="programs-heading">
         <div className="container">
           <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
             <div>
@@ -97,8 +97,8 @@ export default function Index() {
             </Link>
           </div>
           <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredCourses.map((course) => (
-              <motion.div key={course.id} variants={item}>
+            {featuredCourses.map((course) =>
+            <motion.div key={course.id} variants={item}>
                 <Link to={`/courses/${course.slug}`}>
                   <Card className="h-full hover-lift cursor-pointer group">
                     <CardContent className="p-4 sm:p-5">
@@ -116,7 +116,7 @@ export default function Index() {
                   </Card>
                 </Link>
               </motion.div>
-            ))}
+            )}
           </motion.div>
         </div>
       </section>
@@ -134,6 +134,6 @@ export default function Index() {
           </Link>
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 }
