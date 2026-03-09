@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["'Clancy'", "serif"],
+        heading: ["'Roboto Slab'", "serif"],
         body: ["'DM Sans'", "sans-serif"],
       },
       colors: {
