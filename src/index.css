@@ -4,63 +4,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* UNSW College Design System — Aligned to unswcollege.edu.au */
+/* UNSW College Design System — All colors HSL */
 
 @layer base {
   :root {
-    /* Light, clean base like the real site */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 13%;
+    /* UNSW Navy */
+    --background: 0 0% 99%;
+    --foreground: 215 30% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 13%;
+    --card-foreground: 215 30% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 13%;
+    --popover-foreground: 215 30% 15%;
 
-    /* UNSW Yellow as primary CTA — matching the real site */
-    --primary: 43 100% 50%;
-    --primary-foreground: 0 0% 13%;
+    /* UNSW Primary Navy #002664 → hsl(215 100% 20%) */
+    --primary: 215 100% 20%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 13%;
+    --secondary: 215 20% 95%;
+    --secondary-foreground: 215 100% 20%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 215 15% 95%;
+    --muted-foreground: 215 10% 46%;
 
-    /* Navy as accent — used for headings, nav highlights, footer */
-    --accent: 215 100% 20%;
-    --accent-foreground: 0 0% 100%;
+    /* UNSW Yellow Accent #FFB800 → hsl(43 100% 50%) */
+    --accent: 43 100% 50%;
+    --accent-foreground: 215 100% 20%;
 
-    /* Alert Red */
+    /* Alert Red #E63946 → hsl(356 79% 56%) */
     --destructive: 356 79% 56%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Success Green */
+    /* Success Green #38A169 → hsl(145 47% 42%) */
     --success: 145 47% 42%;
     --success-foreground: 0 0% 100%;
 
     /* Warning */
     --warning: 43 100% 50%;
-    --warning-foreground: 0 0% 13%;
+    --warning-foreground: 215 100% 20%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 43 100% 50%;
+    --border: 215 20% 90%;
+    --input: 215 20% 90%;
+    --ring: 215 100% 20%;
 
-    --radius: 0.375rem;
+    --radius: 0.5rem;
 
-    /* Sidebar — navy */
+    /* Sidebar */
     --sidebar-background: 215 100% 16%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 43 100% 50%;
-    --sidebar-primary-foreground: 0 0% 13%;
+    --sidebar-primary-foreground: 215 100% 20%;
     --sidebar-accent: 215 80% 25%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 215 60% 25%;
     --sidebar-ring: 43 100% 50%;
 
-    /* Custom UNSW tokens */
+    /* Custom tokens */
     --unsw-navy: 215 100% 20%;
     --unsw-navy-dark: 215 100% 12%;
     --unsw-yellow: 43 100% 50%;
@@ -69,10 +69,10 @@
     --unsw-light-blue: 210 60% 95%;
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.04);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.06), 0 2px 4px -2px hsl(0 0% 0% / 0.04);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.06), 0 4px 6px -4px hsl(0 0% 0% / 0.03);
-    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.04), 0 1px 2px -1px hsl(0 0% 0% / 0.04);
+    --shadow-sm: 0 1px 2px 0 hsl(215 100% 20% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 100% 20% / 0.08), 0 2px 4px -2px hsl(215 100% 20% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(215 100% 20% / 0.08), 0 4px 6px -4px hsl(215 100% 20% / 0.04);
+    --shadow-card: 0 1px 3px 0 hsl(215 100% 20% / 0.06), 0 1px 2px -1px hsl(215 100% 20% / 0.06);
   }
 
   .dark {
@@ -127,7 +127,7 @@
   }
 
   html {
-    font-size: 18px;
+    font-size: 18px; /* +2px from default 16px — scales all rem-based sizes uniformly */
   }
 
   body {
@@ -137,7 +137,6 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
-    @apply text-accent;
   }
 
   /* WCAG 2.1 AA - 3px yellow focus ring */
@@ -148,7 +147,7 @@
 
   /* Skip navigation link */
   .skip-link {
-    @apply absolute -top-10 left-4 z-[9999] bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold transition-all;
+    @apply absolute -top-10 left-4 z-[9999] bg-accent text-accent-foreground px-4 py-2 rounded-md font-semibold transition-all;
   }
   .skip-link:focus {
     @apply top-4;
@@ -180,7 +179,7 @@
     @apply -translate-y-0.5 shadow-md;
   }
 
-  /* Story link underline animation — yellow underline like the real site */
+  /* Story link underline animation */
   .story-link {
     @apply relative inline-block;
   }
