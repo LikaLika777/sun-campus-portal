@@ -56,7 +56,7 @@ export function PublicLayout() {
           className={cn(
             "flex h-16 items-center",
             isHomePage
-              ? "mx-auto w-[90%] max-w-6xl rounded-sm bg-card shadow-md"
+              ? "mx-auto w-[90%] max-w-6xl rounded-sm bg-card shadow-md overflow-hidden"
               : "container"
           )}
         >
@@ -82,8 +82,7 @@ export function PublicLayout() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 px-6">
-
+          <div className="flex items-center gap-2 px-4">
             {isLoggedIn ? (
               <>
                 <Link to="/dashboard/inbox" className="relative hidden md:flex">
@@ -138,6 +137,15 @@ export function PublicLayout() {
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
+
+          {/* Search button — full nav height, far right */}
+          <button
+            onClick={() => setSearchOpen(!searchOpen)}
+            className="flex h-16 w-16 shrink-0 items-center justify-center bg-foreground text-background transition-colors hover:bg-foreground/80"
+            aria-label="Search"
+          >
+            <Search className="h-5 w-5" />
+          </button>
         </div>
 
         {/* Search bar dropdown */}
