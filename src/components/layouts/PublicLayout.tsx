@@ -95,14 +95,7 @@ export function PublicLayout() {
             {isLoggedIn ? (
               <>
                 <Link to="/dashboard/inbox" className="relative hidden md:flex">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className={cn(
-                      "relative",
-                      isHomePage && "text-primary-foreground hover:bg-primary-foreground/10"
-                    )}
-                  >
+                  <Button size="sm" variant="ghost" className="relative">
                     <Bell className="h-4 w-4" />
                     {notificationCount > 0 && (
                       <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-destructive px-1 text-[10px] font-bold text-destructive-foreground">
@@ -112,14 +105,7 @@ export function PublicLayout() {
                   </Button>
                 </Link>
                 <Link to="/dashboard">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className={cn(
-                      "hidden md:flex",
-                      isHomePage && "border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-                    )}
-                  >
+                  <Button size="sm" variant="outline" className="hidden md:flex">
                     <span className="mr-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-foreground">
                       {currentPersona.avatar}
                     </span>
@@ -129,10 +115,7 @@ export function PublicLayout() {
                 <Button
                   size="sm"
                   variant="ghost"
-                  className={cn(
-                    "hidden md:flex",
-                    isHomePage ? "text-primary-foreground/70 hover:bg-primary-foreground/10" : "text-muted-foreground"
-                  )}
+                  className="hidden md:flex text-muted-foreground"
                   onClick={handleLogout}
                 >
                   <LogOut className="h-4 w-4 mr-1" />
@@ -142,23 +125,12 @@ export function PublicLayout() {
             ) : (
               <>
                 <Link to="/login">
-                  <Button
-                    size="sm"
-                    className={cn(
-                      "hidden md:flex",
-                      isHomePage && "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-                    )}
-                  >
+                  <Button size="sm" className="hidden md:flex">
                     Log in
                   </Button>
                 </Link>
                 <Link to="/register">
-                  <Button
-                    size="sm"
-                    className={cn(
-                      "hidden md:flex bg-accent text-accent-foreground hover:bg-accent/90"
-                    )}
-                  >
+                  <Button size="sm" className="hidden md:flex bg-accent text-accent-foreground hover:bg-accent/90">
                     Register
                   </Button>
                 </Link>
@@ -167,10 +139,7 @@ export function PublicLayout() {
 
             {/* Mobile menu button */}
             <button
-              className={cn(
-                "md:hidden p-2",
-                isHomePage ? "text-primary-foreground" : ""
-              )}
+              className="md:hidden p-2"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
