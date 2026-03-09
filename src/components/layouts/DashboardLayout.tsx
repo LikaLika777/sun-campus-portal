@@ -8,7 +8,7 @@ import {
   useSidebar
 } from "@/components/ui/sidebar";
 import { NavLink } from "@/components/NavLink";
-import unswLogo from "@/assets/unsw-college-logo.png";
+import unswLogoWhite from "@/assets/unsw-college-logo-white.svg";
 
 const sidebarItems = [
   { title: "Dashboard", url: "/dashboard", icon: Home },
