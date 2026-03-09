@@ -75,7 +75,7 @@ export default function ComplaintAppeal() {
 
   return (
     <div>
-      <section className="bg-primary text-primary-foreground py-10">
+      <section className="bg-slate-800 text-primary-foreground py-10">
         <div className="container">
           <h1 className="font-heading text-3xl font-extrabold mb-2">Complaints & Appeals</h1>
           <p className="text-primary-foreground/80">We take your concerns seriously and will investigate thoroughly.</p>

@@ -128,7 +128,7 @@ export default function TrackRequest() {
 
   return (
     <div>
-      <section className="bg-primary text-primary-foreground py-10">
+      <section className="bg-slate-800 text-primary-foreground py-10">
         <div className="container">
           <h1 className="font-heading text-3xl font-extrabold mb-2">Track Your Request</h1>
           <p className="text-primary-foreground/80">Check the status of your enquiry, report, or disclosure.</p>

@@ -34,7 +34,7 @@ export default function CourseDetail() {
   if (loading) {
     return (
       <div>
-        <div className="bg-slate-800 py-12"><div className="container"><Skeleton className="h-8 w-64 bg-primary-foreground/20" /><Skeleton className="h-5 w-96 mt-3 bg-primary-foreground/10" /></div></div>
+        <div className="bg-slate-80000 py-12"><div className="container"><Skeleton className="h-8 w-64 bg-primary-foreground/20" /><Skeleton className="h-5 w-96 mt-3 bg-primary-foreground/10" /></div></div>
         <div className="container py-8 grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-4"><Skeleton className="h-10 w-full" /><Skeleton className="h-40 w-full" /></div>
           <div><Skeleton className="h-64 w-full" /></div>
@@ -46,7 +46,7 @@ export default function CourseDetail() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-primary text-primary-foreground py-10">
+      <section className="bslate-800ry text-primary-foreground py-10">
         <div className="container">
           <Link to="/courses" className="inline-flex items-center text-sm text-primary-foreground/70 hover:text-primary-foreground mb-4 transition-colors">
             <ArrowLeft className="mr-1 h-3.5 w-3.5" /> All Programs
