@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["'Plus Jakarta Sans'", "sans-serif"],
-        body: ["'Source Sans 3'", "sans-serif"],
+        heading: ["'DM Serif Display'", "serif"],
+        body: ["'DM Sans'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -76,13 +76,15 @@ export default {
           yellow: "hsl(var(--unsw-yellow))",
           red: "hsl(var(--unsw-red))",
           green: "hsl(var(--unsw-green))",
-          "light-blue": "hsl(var(--unsw-light-blue))",
+          "light-bg": "hsl(var(--unsw-light-bg))",
+          blue: "hsl(var(--unsw-blue))",
         },
+        link: "hsl(var(--link))",
       },
       borderRadius: {
-        lg: "0px",
-        md: "0px",
-        sm: "0px",
+        lg: "12px",
+        md: "8px",
+        sm: "4px",
       },
       boxShadow: {
         sm: "var(--shadow-sm)",
