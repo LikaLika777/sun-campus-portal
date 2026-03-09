@@ -186,7 +186,7 @@
 
 @layer utilities {
   .font-heading {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Oswald', sans-serif;
   }
   .font-body {
     font-family: 'DM Sans', sans-serif;
