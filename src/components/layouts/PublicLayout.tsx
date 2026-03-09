@@ -45,10 +45,10 @@ export function PublicLayout() {
       {/* Header */}
       <header
         className={cn(
-          "z-40 transition-colors duration-300",
+          "z-40 transition-colors duration-300 sticky top-0",
           isHomePage
-            ? "absolute w-full bg-transparent pt-4"
-            : "sticky top-0 border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80"
+            ? "bg-transparent pt-4"
+            : "border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80"
         )}
         role="banner"
       >
