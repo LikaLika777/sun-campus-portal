@@ -54,18 +54,18 @@ export function PublicLayout() {
       >
         <div
           className={cn(
-            "flex h-16 items-center justify-between",
+            "flex h-16 items-center",
             isHomePage
-              ? "mx-auto w-[90%] max-w-6xl rounded-sm bg-card shadow-md px-6"
+              ? "mx-auto w-[90%] max-w-6xl rounded-sm bg-card shadow-md"
               : "container"
           )}
         >
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2 px-6">
             <img src={unswLogo} alt="UNSW College" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center gap-1 flex-1" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -82,15 +82,7 @@ export function PublicLayout() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            {/* Search button — dark square like reference */}
-            <button
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-sm bg-foreground text-background transition-colors hover:bg-foreground/80"
-              aria-label="Search"
-            >
-              <Search className="h-5 w-5" />
-            </button>
+          <div className="flex items-center gap-2 px-6">
 
             {isLoggedIn ? (
               <>
