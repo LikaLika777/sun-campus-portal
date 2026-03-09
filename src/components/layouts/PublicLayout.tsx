@@ -56,8 +56,8 @@ export function PublicLayout() {
           className={cn(
             "flex h-16 items-center",
             isHomePage
-              ? "mx-auto w-[90%] max-w-6xl rounded-sm bg-card shadow-md overflow-hidden"
-              : "container"
+              ? "mx-auto w-[92%] max-w-[1540px] rounded-sm bg-card shadow-md overflow-hidden"
+              : "mx-auto w-full max-w-[1540px] px-8"
           )}
         >
           <Link to="/" className="flex items-center gap-2 px-6">
