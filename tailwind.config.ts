@@ -82,9 +82,9 @@ export default {
         link: "hsl(var(--link))",
       },
       borderRadius: {
-        lg: "0px",
-        md: "0px",
-        sm: "0px",
+        lg: "12px",
+        md: "8px",
+        sm: "4px",
       },
       boxShadow: {
         sm: "var(--shadow-sm)",

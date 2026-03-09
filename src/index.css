@@ -186,10 +186,10 @@
 
 @layer utilities {
   .font-heading {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'DM Serif Display', serif;
   }
   .font-body {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
 
   /* Interactive hover effects */
