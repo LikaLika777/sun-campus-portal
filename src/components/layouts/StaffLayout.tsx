@@ -1,11 +1,12 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useDemo } from "@/contexts/DemoContext";
-import { Inbox, FileSearch, GitMerge, Shield, ClipboardList, GraduationCap, LogOut } from "lucide-react";
+import { Inbox, FileSearch, GitMerge, Shield, ClipboardList, LogOut } from "lucide-react";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
   SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger
 } from "@/components/ui/sidebar";
 import { NavLink } from "@/components/NavLink";
+import unswLogo from "@/assets/unsw-college-logo.png";
 
 const staffItems = [
   { title: "Inbox", url: "/staff/inbox", icon: Inbox },
