@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["'Roboto Slab'", "serif"],
+        heading: ["'Oswald'", "sans-serif"],
         body: ["'DM Sans'", "sans-serif"],
       },
       colors: {
