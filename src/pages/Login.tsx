@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { GraduationCap, ArrowRight, AlertCircle } from "lucide-react";
+import { ArrowRight, AlertCircle } from "lucide-react";
+import unswLogo from "@/assets/unsw-college-logo.png";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 
