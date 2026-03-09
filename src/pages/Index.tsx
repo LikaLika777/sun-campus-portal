@@ -32,7 +32,7 @@ export default function Index() {
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/40" />
 
-        <div className="container relative pt-16 py-16 sm:py-20 md:py-28 mt-[50px]">
+        <div className="container relative pt-16 py-16 sm:py-20 md:py-28 mt-[150px]">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-2xl">
             <h1 id="hero-heading" className="font-heading text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight mb-4 text-primary-foreground">
               Your path to UNSW<br />
