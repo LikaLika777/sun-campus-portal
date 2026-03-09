@@ -7,7 +7,7 @@ import { useState, useMemo } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/courses", label: "Courses" },
+  { href: "/courses", label: "Study" },
   { href: "/support", label: "Support" },
   { href: "/track", label: "Track Request" },
 ];
@@ -18,12 +18,10 @@ export function PublicLayout() {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Notification count based on persona
   const notificationCount = useMemo(() => {
     if (!isLoggedIn) return 0;
     const personaEnquiries = enquiries.filter((e) => e.personaId === currentPersona.id);
     const personaCases = cases.filter((c) => c.personaId === currentPersona.id);
-    // Count items with recent updates as "notifications"
     return personaEnquiries.filter((e) => e.status !== "closed").length + personaCases.filter((c) => c.status !== "closed").length;
   }, [isLoggedIn, currentPersona, enquiries, cases]);
 
@@ -34,25 +32,24 @@ export function PublicLayout() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Skip link */}
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
 
-      {/* Header */}
-      <header className="sticky top-0 z-40 border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80" role="banner">
+      {/* Header — white background, clean like the real site */}
+      <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80" role="banner">
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-              <GraduationCap className="h-5 w-5 text-primary-foreground" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent">
+              <GraduationCap className="h-5 w-5 text-accent-foreground" />
             </div>
             <div className="flex flex-col">
-              <span className="font-heading text-sm font-bold leading-tight text-foreground">UNSW College</span>
+              <span className="font-heading text-sm font-bold leading-tight text-accent">UNSW College</span>
               <span className="text-[10px] text-muted-foreground leading-tight">Student Experience Portal</span>
             </div>
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — clean text links like the real site */}
           <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
@@ -60,7 +57,7 @@ export function PublicLayout() {
                 to={link.href}
                 className={cn(
                   "px-3 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted",
-                  location.pathname === link.href ? "text-primary bg-primary/5" : "text-muted-foreground"
+                  location.pathname === link.href ? "text-accent border-b-2 border-primary" : "text-foreground"
                 )}
               >
                 {link.label}
@@ -83,7 +80,7 @@ export function PublicLayout() {
                 </Link>
                 <Link to="/dashboard">
                   <Button size="sm" variant="outline" className="hidden md:flex">
-                    <span className="mr-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-foreground">
+                    <span className="mr-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[9px] font-bold text-accent-foreground">
                       {currentPersona.avatar}
                     </span>
                     Dashboard
@@ -97,15 +94,14 @@ export function PublicLayout() {
             ) : (
               <>
                 <Link to="/login">
-                  <Button size="sm" className="hidden md:flex">Log in</Button>
+                  <Button size="sm" variant="outline" className="hidden md:flex border-accent text-accent hover:bg-accent/5">Log in</Button>
                 </Link>
                 <Link to="/register">
-                  <Button size="sm" className="hidden md:flex bg-accent text-accent-foreground hover:bg-accent/90">Register</Button>
+                  <Button size="sm" className="hidden md:flex font-semibold">Register</Button>
                 </Link>
               </>
             )}
 
-            {/* Mobile menu button */}
             <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -114,7 +110,7 @@ export function PublicLayout() {
 
         {/* Mobile nav */}
         {mobileOpen && (
-          <nav className="md:hidden border-t bg-card p-4 space-y-1" aria-label="Mobile navigation">
+          <nav className="md:hidden border-t bg-background p-4 space-y-1" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -122,7 +118,7 @@ export function PublicLayout() {
                 onClick={() => setMobileOpen(false)}
                 className={cn(
                   "block px-3 py-2 text-sm font-medium rounded-md transition-colors",
-                  location.pathname === link.href ? "text-primary bg-primary/5" : "text-muted-foreground"
+                  location.pathname === link.href ? "text-accent bg-accent/5" : "text-foreground"
                 )}
               >
                 {link.label}
@@ -130,7 +126,7 @@ export function PublicLayout() {
             ))}
             {isLoggedIn ? (
               <>
-                <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="flex items-center justify-between px-3 py-2 text-sm font-medium text-primary">
+                <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="flex items-center justify-between px-3 py-2 text-sm font-medium text-accent">
                   Dashboard
                   {notificationCount > 0 && (
                     <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-destructive px-1 text-[10px] font-bold text-destructive-foreground">
@@ -144,10 +140,10 @@ export function PublicLayout() {
               </>
             ) : (
               <>
-                <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-primary">
+                <Link to="/login" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-accent">
                   Log in
                 </Link>
-                <Link to="/register" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-accent-foreground">
+                <Link to="/register" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-primary">
                   Register
                 </Link>
               </>
@@ -156,21 +152,20 @@ export function PublicLayout() {
         )}
       </header>
 
-      {/* Main content */}
       <main id="main-content" className="flex-1" role="main" aria-live="polite">
         <Outlet />
       </main>
 
-      {/* Footer */}
-      <footer className="border-t bg-primary text-primary-foreground" role="contentinfo">
+      {/* Footer — navy like the real site */}
+      <footer className="border-t bg-accent text-accent-foreground" role="contentinfo">
         <div className="container py-8">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
-              <h4 className="font-heading text-sm font-semibold mb-2">UNSW College</h4>
+              <h4 className="font-heading text-sm font-semibold mb-2 text-accent-foreground">UNSW College</h4>
               <p className="text-xs opacity-80">Part of UNSW Sydney. Providing pathways to world-class education since 1989.</p>
             </div>
             <div>
-              <h4 className="font-heading text-sm font-semibold mb-2">Quick Links</h4>
+              <h4 className="font-heading text-sm font-semibold mb-2 text-accent-foreground">Quick Links</h4>
               <ul className="space-y-1 text-xs opacity-80">
                 <li><Link to="/courses" className="hover:opacity-100 transition-opacity">Courses</Link></li>
                 <li><Link to="/support" className="hover:opacity-100 transition-opacity">Support</Link></li>
@@ -178,7 +173,7 @@ export function PublicLayout() {
               </ul>
             </div>
             <div>
-              <h4 className="font-heading text-sm font-semibold mb-2">Contact</h4>
+              <h4 className="font-heading text-sm font-semibold mb-2 text-accent-foreground">Contact</h4>
               <p className="text-xs opacity-80">
                 Kensington, NSW 2052<br />
                 +61 2 9385 5555<br />
@@ -186,7 +181,7 @@ export function PublicLayout() {
               </p>
             </div>
           </div>
-          <div className="mt-6 border-t border-primary-foreground/20 pt-4 text-center text-xs opacity-60">
+          <div className="mt-6 border-t border-accent-foreground/20 pt-4 text-center text-xs opacity-60">
             © {new Date().getFullYear()} UNSW College. Demo prototype — not a live system.
           </div>
         </div>
