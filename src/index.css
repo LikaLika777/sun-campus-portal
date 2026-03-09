@@ -162,7 +162,7 @@
 
   /* WCAG 2.1 AA - 3px yellow focus ring */
   *:focus-visible {
-    outline: 3px solid hsl(49 100% 45%);
+    outline: 3px solid hsl(var(--accent-dark));
     outline-offset: 2px;
   }
 
