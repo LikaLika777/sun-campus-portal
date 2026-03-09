@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["'Oswald'", "sans-serif"],
+        heading: ["'Plus Jakarta Sans'", "sans-serif"],
         body: ["'DM Sans'", "sans-serif"],
       },
       colors: {

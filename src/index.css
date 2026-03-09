@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -147,12 +147,12 @@
   }
 
   h1, h2 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 400;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
   }
 
   h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 600;
   }
 
@@ -186,7 +186,7 @@
 
 @layer utilities {
   .font-heading {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
   .font-body {
     font-family: 'DM Sans', sans-serif;
