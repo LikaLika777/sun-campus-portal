@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["'DM Serif Display'", "serif"],
+        heading: ["'Clancy'", "serif"],
         body: ["'DM Sans'", "sans-serif"],
       },
       colors: {
