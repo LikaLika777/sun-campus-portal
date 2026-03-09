@@ -76,8 +76,10 @@ export default {
           yellow: "hsl(var(--unsw-yellow))",
           red: "hsl(var(--unsw-red))",
           green: "hsl(var(--unsw-green))",
-          "light-blue": "hsl(var(--unsw-light-blue))",
+          "light-bg": "hsl(var(--unsw-light-bg))",
+          blue: "hsl(var(--unsw-blue))",
         },
+        link: "hsl(var(--link))",
       },
       borderRadius: {
         lg: "0px",
