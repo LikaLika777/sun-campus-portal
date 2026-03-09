@@ -196,12 +196,14 @@ export function PublicLayout() {
             )}
           </nav>
         )}
-      </header>
+      {/* Spacer for non-home pages to push content below absolute header */}
+      {!isHomePage && (
+        <div className="relative h-[120px] bg-primary">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
+        </div>
+      )}
 
-      {/* Main content */}
-      <main id="main-content" className="flex-1" role="main" aria-live="polite">
-        <Outlet />
-      </main>
+
 
       {/* Footer */}
       <footer className="border-t bg-primary text-primary-foreground" role="contentinfo">
