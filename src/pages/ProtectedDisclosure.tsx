@@ -66,7 +66,7 @@ export default function ProtectedDisclosure() {
   if (step === -1) {
     return (
       <div>
-        <section className="bg-primary text-primary-foreground py-10">
+        <section className="bg-slate-800 text-primary-foreground py-10">
           <div className="container flex items-center gap-3">
             <ShieldCheck className="h-7 w-7 text-accent" />
             <div>
