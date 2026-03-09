@@ -44,22 +44,11 @@ export function PublicLayout() {
 
       {/* Header */}
       <header
-        className={cn(
-          "z-40 transition-colors duration-300",
-          isHomePage
-            ? "absolute w-full bg-transparent pt-4"
-            : "sticky top-0 border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80"
-        )}
+        className="absolute z-40 w-full bg-transparent pt-4 transition-colors duration-300"
         role="banner"
       >
-        <div
-          className={cn(
-            "flex h-16 items-center",
-            isHomePage
-              ? "mx-auto w-[92%] max-w-[1540px] rounded-sm bg-card shadow-md overflow-hidden"
-              : "mx-auto w-full max-w-[1540px] px-8"
-          )}
-        >
+        <div className="mx-auto flex h-16 w-[92%] max-w-[1540px] items-center rounded-sm bg-card shadow-md overflow-hidden">
+
           <Link to="/" className="flex items-center gap-2 px-6">
             <img src={unswLogo} alt="UNSW College" className="h-10 w-auto" />
           </Link>
