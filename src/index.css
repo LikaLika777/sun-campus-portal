@@ -28,9 +28,12 @@
     --muted: 0 0% 95%;
     --muted-foreground: 0 0% 46%;
 
-    /* UNSW Yellow Accent #FFB800 → hsl(43 100% 50%) */
-    --accent: 43 100% 50%;
+    /* UNSW Yellow #FFD100 → hsl(49 100% 50%) */
+    --accent: 49 100% 50%;
     --accent-foreground: 0 0% 7%;
+
+    /* UNSW Yellow Dark #E6BC00 → hsl(49 100% 45%) */
+    --accent-dark: 49 100% 45%;
 
     /* Alert Red #E63946 → hsl(356 79% 56%) */
     --destructive: 356 79% 56%;
@@ -41,7 +44,7 @@
     --success-foreground: 0 0% 100%;
 
     /* Warning */
-    --warning: 43 100% 50%;
+    --warning: 49 100% 50%;
     --warning-foreground: 0 0% 7%;
 
     --border: 0 0% 90%;
@@ -53,17 +56,17 @@
     /* Sidebar */
     --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 43 100% 50%;
+    --sidebar-primary: 49 100% 50%;
     --sidebar-primary-foreground: 0 0% 7%;
     --sidebar-accent: 0 0% 15%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 43 100% 50%;
+    --sidebar-ring: 49 100% 50%;
 
     /* Custom tokens */
     --unsw-navy: 0 0% 7%;
     --unsw-navy-dark: 0 0% 3%;
-    --unsw-yellow: 43 100% 50%;
+    --unsw-yellow: 49 100% 50%;
     --unsw-red: 356 79% 56%;
     --unsw-green: 145 47% 42%;
     --unsw-light-blue: 0 0% 95%;
@@ -85,7 +88,7 @@
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 43 100% 50%;
+    --primary: 49 100% 50%;
     --primary-foreground: 0 0% 5%;
 
     --secondary: 0 0% 14%;
@@ -94,7 +97,7 @@
     --muted: 0 0% 14%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 43 100% 50%;
+    --accent: 49 100% 50%;
     --accent-foreground: 0 0% 5%;
 
     --destructive: 356 79% 50%;
@@ -103,21 +106,21 @@
     --success: 145 47% 42%;
     --success-foreground: 0 0% 100%;
 
-    --warning: 43 100% 50%;
+    --warning: 49 100% 50%;
     --warning-foreground: 0 0% 5%;
 
     --border: 0 0% 18%;
     --input: 0 0% 18%;
-    --ring: 43 100% 50%;
+    --ring: 49 100% 50%;
 
     --sidebar-background: 0 0% 4%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 43 100% 50%;
+    --sidebar-primary: 49 100% 50%;
     --sidebar-primary-foreground: 0 0% 5%;
     --sidebar-accent: 0 0% 12%;
     --sidebar-accent-foreground: 0 0% 90%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 43 100% 50%;
+    --sidebar-ring: 49 100% 50%;
   }
 }
 
@@ -141,7 +144,7 @@
 
   /* WCAG 2.1 AA - 3px yellow focus ring */
   *:focus-visible {
-    outline: 3px solid hsl(43 100% 50%);
+    outline: 3px solid hsl(49 100% 45%);
     outline-offset: 2px;
   }
 
