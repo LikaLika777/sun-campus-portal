@@ -37,7 +37,7 @@ export default function CourseCatalogue() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-primary text-primary-foreground py-12">
+      <section className="text-primary-foreground py-12 bg-slate-800">
         <div className="container">
           <h1 className="font-heading text-3xl md:text-4xl font-extrabold mb-2">Our Programs</h1>
           <p className="text-primary-foreground/80 max-w-xl">
@@ -50,19 +50,19 @@ export default function CourseCatalogue() {
         {/* Filters & Search */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveFilter(cat)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${
-                  activeFilter === cat
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-card text-muted-foreground border-border hover:border-primary/40"
-                }`}
-              >
+            {categories.map((cat) =>
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${
+              activeFilter === cat ?
+              "bg-primary text-primary-foreground border-primary" :
+              "bg-card text-muted-foreground border-border hover:border-primary/40"}`
+              }>
+              
                 {cat}
               </button>
-            ))}
+            )}
           </div>
           <div className="relative sm:ml-auto sm:w-64">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -71,16 +71,16 @@ export default function CourseCatalogue() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="pl-9"
-              aria-label="Search programs"
-            />
+              aria-label="Search programs" />
+            
           </div>
         </div>
 
         {/* Grid */}
-        {loading ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <Card key={i}>
+        {loading ?
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, i) =>
+          <Card key={i}>
                 <CardContent className="p-5 space-y-3">
                   <Skeleton className="h-5 w-20" />
                   <Skeleton className="h-5 w-3/4" />
@@ -89,22 +89,22 @@ export default function CourseCatalogue() {
                   <Skeleton className="h-3 w-1/2" />
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        ) : filtered.length === 0 ? (
-          <div className="text-center py-16">
+          )}
+          </div> :
+        filtered.length === 0 ?
+        <div className="text-center py-16">
             <p className="text-muted-foreground">No programs match your filters.</p>
-          </div>
-        ) : (
-          <motion.div
-            variants={container}
-            initial="hidden"
-            animate="visible"
-            key={activeFilter + search}
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {filtered.map((course) => (
-              <motion.div key={course.id} variants={item}>
+          </div> :
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          key={activeFilter + search}
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          
+            {filtered.map((course) =>
+          <motion.div key={course.id} variants={item}>
                 <Link to={`/courses/${course.slug}`}>
                   <Card className="h-full hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer group">
                     <CardContent className="p-5">
@@ -127,10 +127,10 @@ export default function CourseCatalogue() {
                   </Card>
                 </Link>
               </motion.div>
-            ))}
+          )}
           </motion.div>
-        )}
+        }
       </div>
-    </div>
-  );
+    </div>);
+
 }
