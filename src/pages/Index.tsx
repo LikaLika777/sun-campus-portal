@@ -21,7 +21,7 @@ export default function Index() {
   return (
     <div>
       {/* Hero — full bleed with image behind transparent nav */}
-      <section className="relative min-h-[520px] sm:min-h-[560px] md:min-h-[600px] flex items-center overflow-hidden -mt-16" aria-labelledby="hero-heading">
+      <section className="relative min-h-[520px] sm:min-h-[560px] md:min-h-[600px] flex items-center justify-center overflow-hidden -mt-16" aria-labelledby="hero-heading">
         {/* Background image */}
         <img
           src={heroBanner}
