@@ -34,7 +34,7 @@ export default function CourseDetail() {
   if (loading) {
     return (
       <div>
-        <div className="bg-primary py-12"><div className="container"><Skeleton className="h-8 w-64 bg-primary-foreground/20" /><Skeleton className="h-5 w-96 mt-3 bg-primary-foreground/10" /></div></div>
+        <div className="bg-slate-800 py-12"><div className="container"><Skeleton className="h-8 w-64 bg-primary-foreground/20" /><Skeleton className="h-5 w-96 mt-3 bg-primary-foreground/10" /></div></div>
         <div className="container py-8 grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-4"><Skeleton className="h-10 w-full" /><Skeleton className="h-40 w-full" /></div>
           <div><Skeleton className="h-64 w-full" /></div>
