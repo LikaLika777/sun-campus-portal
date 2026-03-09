@@ -48,7 +48,7 @@
     --input: 0 0% 90%;
     --ring: 0 0% 7%;
 
-    --radius: 0.5rem;
+    --radius: 0px;
 
     /* Sidebar */
     --sidebar-background: 0 0% 5%;
@@ -147,7 +147,7 @@
 
   /* Skip navigation link */
   .skip-link {
-    @apply absolute -top-10 left-4 z-[9999] bg-accent text-accent-foreground px-4 py-2 rounded-md font-semibold transition-all;
+    @apply absolute -top-10 left-4 z-[9999] bg-accent text-accent-foreground px-4 py-2 font-semibold transition-all;
   }
   .skip-link:focus {
     @apply top-4;
