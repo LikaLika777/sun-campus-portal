@@ -8,74 +8,81 @@
 
 @layer base {
   :root {
-    /* UNSW Black */
-    --background: 0 0% 99%;
-    --foreground: 0 0% 7%;
+    /* Off White background #F5F4F0 */
+    --background: 40 20% 95%;
+    /* Near Black #0D0D0D */
+    --foreground: 0 0% 5%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 7%;
+    --card-foreground: 0 0% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 7%;
+    --popover-foreground: 0 0% 5%;
 
-    /* Primary Black */
-    --primary: 0 0% 7%;
+    /* Navy Night #1A1A2E — primary */
+    --primary: 240 28% 14%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 95%;
-    --secondary-foreground: 0 0% 7%;
+    --secondary: 40 14% 92%;
+    --secondary-foreground: 0 0% 5%;
 
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 46%;
+    --muted: 40 14% 92%;
+    /* Mid Grey #4A4A5A */
+    --muted-foreground: 240 10% 32%;
 
-    /* UNSW Yellow #FFD100 → hsl(49 100% 50%) */
+    /* UNSW Yellow #FFD100 */
     --accent: 49 100% 50%;
-    --accent-foreground: 0 0% 7%;
+    --accent-foreground: 0 0% 5%;
 
-    /* UNSW Yellow Dark #E6BC00 → hsl(49 100% 45%) */
+    /* UNSW Yellow Dark #E6BC00 */
     --accent-dark: 49 100% 45%;
 
-    /* Alert Red #E63946 → hsl(356 79% 56%) */
+    /* Alert Red #E63946 */
     --destructive: 356 79% 56%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Success Green #38A169 → hsl(145 47% 42%) */
+    /* Success Green #38A169 */
     --success: 145 47% 42%;
     --success-foreground: 0 0% 100%;
 
     /* Warning */
     --warning: 49 100% 50%;
-    --warning-foreground: 0 0% 7%;
+    --warning-foreground: 0 0% 5%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 7%;
+    /* UNSW Blue #003087 — links only */
+    --link: 220 100% 26%;
 
-    --radius: 0px;
+    /* Border #E0DED8 */
+    --border: 45 14% 86%;
+    --input: 45 14% 86%;
+    --ring: 240 28% 14%;
+
+    --radius: 12px;
 
     /* Sidebar */
-    --sidebar-background: 0 0% 5%;
+    --sidebar-background: 240 28% 10%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 49 100% 50%;
-    --sidebar-primary-foreground: 0 0% 7%;
-    --sidebar-accent: 0 0% 15%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 240 28% 18%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 20%;
+    --sidebar-border: 240 20% 20%;
     --sidebar-ring: 49 100% 50%;
 
     /* Custom tokens */
-    --unsw-navy: 0 0% 7%;
-    --unsw-navy-dark: 0 0% 3%;
+    --unsw-navy: 240 28% 14%;
+    --unsw-navy-dark: 240 28% 10%;
     --unsw-yellow: 49 100% 50%;
     --unsw-red: 356 79% 56%;
     --unsw-green: 145 47% 42%;
-    --unsw-light-blue: 0 0% 95%;
+    --unsw-light-bg: 40 20% 95%;
+    --unsw-blue: 220 100% 26%;
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.08), 0 2px 4px -2px hsl(0 0% 0% / 0.05);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.08), 0 4px 6px -4px hsl(0 0% 0% / 0.04);
-    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.06), 0 1px 2px -1px hsl(0 0% 0% / 0.06);
+    --shadow-lg: 0 12px 40px -8px hsl(0 0% 0% / 0.10);
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.04), 0 1px 2px -1px hsl(0 0% 0% / 0.04);
   }
 
   .dark {
