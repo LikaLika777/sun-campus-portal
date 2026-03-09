@@ -102,7 +102,7 @@ export default function Index() {
                 <Link to={`/courses/${course.slug}`}>
                   <Card className="h-full hover-lift cursor-pointer group">
                     <CardContent className="p-4 sm:p-5">
-                      <span className="inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-medium text-primary mb-3">
+                      <span className="inline-block rounded-full px-2.5 py-0.5 font-medium text-primary mb-3 bg-warning text-xs">
                         {course.category}
                       </span>
                       <h3 className="font-heading text-sm sm:text-base font-semibold mb-1 group-hover:text-primary transition-colors">{course.title}</h3>
