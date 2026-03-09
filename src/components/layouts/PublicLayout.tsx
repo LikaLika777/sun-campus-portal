@@ -197,9 +197,7 @@ export function PublicLayout() {
 
       {/* Banner spacer for non-home pages */}
       {!isHomePage && (
-        <div className="relative h-[120px] bg-primary">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
-        </div>
+        <div className="relative h-[120px] bg-slate-800" />
       )}
 
       {/* Main content */}
