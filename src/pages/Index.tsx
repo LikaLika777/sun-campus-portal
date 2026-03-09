@@ -43,7 +43,7 @@ export default function Index() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/courses">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold hover-lift">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent-dark font-semibold hover-lift">
                   Explore our pathways <ArrowRight className="ml-1 h-4 w-4" />
                 </Button>
               </Link>

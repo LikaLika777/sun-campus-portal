@@ -142,7 +142,7 @@ export default function CourseDetail() {
 
           <div className="space-y-2">
             <Link to="/enquire" className="block">
-              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent-dark font-semibold">
                 Enquire Now
               </Button>
             </Link>

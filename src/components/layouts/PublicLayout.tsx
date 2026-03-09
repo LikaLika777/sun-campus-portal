@@ -107,7 +107,7 @@ export function PublicLayout() {
                   </Button>
                 </Link>
                 <Link to="/register">
-                  <Button size="sm" className="hidden md:flex bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Button size="sm" className="hidden md:flex bg-accent text-accent-foreground hover:bg-accent-dark">
                     Register
                   </Button>
                 </Link>
