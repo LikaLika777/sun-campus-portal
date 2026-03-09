@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { courses } from "@/mocks/courses";
 import { motion } from "framer-motion";
-import { GraduationCap, BookOpen, HeadphonesIcon, ArrowRight, Globe, Users, Award } from "lucide-react";
+import { HeadphonesIcon, ArrowRight, Globe, Users, Award } from "lucide-react";
+import heroBanner from "@/assets/hero-banner.jpg";
 
 const features = [
   { icon: Globe, title: "Global Pathways", description: "Study pathways to UNSW Sydney, a world top-50 university." },
@@ -19,22 +20,43 @@ export default function Index() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative bg-primary text-primary-foreground overflow-hidden" aria-labelledby="hero-heading">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-unsw-navy-dark opacity-90" />
-        <div className="container relative py-16 sm:py-20 md:py-28">
+      {/* Hero — full bleed with image behind transparent nav */}
+      <section className="relative min-h-[520px] sm:min-h-[560px] md:min-h-[600px] flex items-center overflow-hidden -mt-16" aria-labelledby="hero-heading">
+        {/* Background image */}
+        <img
+          src={heroBanner}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/40" />
+
+        <div className="container relative pt-16 py-16 sm:py-20 md:py-28">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-2xl">
-            <h1 id="hero-heading" className="font-heading text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight mb-4">
-              Your Pathway to<br />
-              <span className="text-accent">World-Class Education</span>
+            <h1 id="hero-heading" className="font-heading text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight mb-4 text-primary-foreground">
+              Your path to UNSW<br />
+              <span className="text-accent">Sydney</span>
             </h1>
-            <p className="text-base sm:text-lg opacity-90 mb-8 font-body">
-              UNSW College prepares you for success at UNSW Sydney — one of the world's top universities. Explore our Foundation, Diploma, Transition and English programs.
+            <p className="text-base sm:text-lg text-primary-foreground/90 mb-8 font-body max-w-lg">
+              Start your college journey with UNSW College and prepare to thrive at a world top-50 university, UNSW Sydney.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/courses"><Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold hover-lift">Explore Courses <ArrowRight className="ml-1 h-4 w-4" /></Button></Link>
-              <Link to="/enquire"><Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Make an Enquiry</Button></Link>
-              <Link to="/support"><Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Get Support</Button></Link>
+              <Link to="/courses">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold hover-lift">
+                  Explore our pathways <ArrowRight className="ml-1 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link to="/enquire">
+                <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                  Make an Enquiry
+                </Button>
+              </Link>
+              <Link to="/support">
+                <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                  Get Support
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
