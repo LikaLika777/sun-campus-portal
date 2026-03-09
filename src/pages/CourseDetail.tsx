@@ -63,7 +63,7 @@ export default function CourseDetail() {
         {/* Main Content */}
         <div className="lg:col-span-2">
           <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="justify-start bg-muted/50 mb-6">
+            <TabsList className="w-full justify-start bg-muted/50 mb-6">
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="requirements">Entry Requirements</TabsTrigger>
               <TabsTrigger value="study-plan">Study Plan</TabsTrigger>
