@@ -28,9 +28,12 @@
     --muted: 0 0% 95%;
     --muted-foreground: 0 0% 46%;
 
-    /* UNSW Yellow Accent #FFB800 → hsl(43 100% 50%) */
-    --accent: 43 100% 50%;
+    /* UNSW Yellow #FFD100 → hsl(49 100% 50%) */
+    --accent: 49 100% 50%;
     --accent-foreground: 0 0% 7%;
+
+    /* UNSW Yellow Dark #E6BC00 → hsl(49 100% 45%) */
+    --accent-dark: 49 100% 45%;
 
     /* Alert Red #E63946 → hsl(356 79% 56%) */
     --destructive: 356 79% 56%;
